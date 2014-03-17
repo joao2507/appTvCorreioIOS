@@ -1,0 +1,99 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>TVCorreio</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link href="styles/kendo.common.min.css" rel="stylesheet" />
+        <link href="styles/kendo.default.min.css" rel="stylesheet" />
+        <link href="styles/kendo.mobile.all.min.css" rel="stylesheet" />
+        <link href="style.css" rel="stylesheet" />
+
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+
+        <script type="text/javascript">
+            var IS_PHONEGAP = false;
+        </script>
+
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/lib/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/lib/kendo.all.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/lib/kendo.culture.pt-BR.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/lib/jquery.cycle2.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/functions.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+    </head> 
+    <body> 
+
+        <div data-role="view" id="aovivo" data-title="AoVivo" data-layout="tema" class="aovivo">
+            <div id="player">
+                <script>
+                    var screenWidth = $(window).width();
+                    var heightImage = (screenWidth * 425) / 720;
+                    $('#player').prepend('<img id="bg-player" src="img/bg-player.jpg" width="' + screenWidth + '" height="' + heightImage + '" />');
+                    $('#player').css('height',heightImage+'px');
+                    var heightButtonPlay = (heightImage / 2) - (135/2);
+                    
+                    
+                    $('#player').append('<a id="button-play" data-role="button" data-click="onClickToPlayer" data-rel="external" target="_blank"></a>');
+                    $('#button-play').css('top', Math.floor(heightButtonPlay)+'px');
+                </script>
+            </div>
+            <div id="banner">
+                <div class="banner"></div>
+            </div>
+        </div>
+
+        <div data-role="view" id="sobre-tv" data-title="Sobre a TV Correio" data-layout="tema" class="interna">
+            <h1>Sobre a TV Correio</h1>
+            <p>A TV Correio integra o Sistema Correio, maior Sistema de Comunicação do estado da Paraíba, 
+                composta por 23 empresas de comunicação, dentre elas: 02 emissoras de TV, 16 emissoras de 
+                Rádio, 02 Jornais, 02 Revistas, 01 Portal e a Fundação Solidariedade, braço social do Sistema 
+                Correio. E é afiliada da Rede Record, emissora que possui 24 horas de informação em TV 
+                aberta, 173 milhões de telespectadores potenciais em todo o Brasil.</p>
+            <p>Com a maior programação local do estado composta por 13 programas locais, a TV Correio 
+                mantém a liderança em vários horários, com mais que a soma de todos os concorrentes. 
+                Além de manter a quantidade de 63 horas mensais que a programação local fica em 1º lugar. 
+                A TV Correio é a emissora que possui a maior cobertura do estado com 85% de alcance nos 
+                municípios da Paraíba.</p>
+        </div>
+
+        <div data-role="view" id="sobre-app" data-title="Sobre o APP" data-layout="tema" class="interna">
+            <script>
+                var screenWidth = $(window).width();
+                var heightImage = (screenWidth * 959) / 720;
+                $('#sobre-app').append('<img src="img/sobre-app.jpg" width="' + screenWidth + '" height="' + heightImage + '" />');
+            </script>
+        </div>
+
+        <div data-role="view" id="contato-comercial" data-title="Contato Comercial" data-layout="tema" class="interna">
+            <h1>Contato Comercial</h1>
+            <p><strong>Central Telefônica: </strong><br/>(83) 3216-5000</p>
+        </div>
+
+        <div data-role="layout" data-id="tema">
+            <header data-role="header">
+                <div data-role="navbar">
+                    <div class="brilho-navbar">
+                        <a data-role="button" class="button-menu" data-rel="drawer" href="#menu" data-icon="menu-icon" data-align="left"></a>
+                        <img id="logo-correio" src="img/logo-correio.png">
+                        <img src="img/logo-hd.png" data-align="right" />
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <div data-role="drawer" id="menu" style="width: 250px" data-views="['aovivo','sobre-tv','contato-comercial','sobre-app']">
+            <ul data-role="listview" data-type="group">
+                <li>
+                    <ul>
+                        <li><a href="#aovivo" data-transition="none">Início</a></li>
+                        <li><a href="#sobre-tv" data-transition="none">Sobre a TV Correio</a></li>
+                        <li><a href="#contato-comercial" data-transition="none">Contato Comercial</a></li>
+                        <li><a href="#sobre-app" data-transition="none">Sobre o APP</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
